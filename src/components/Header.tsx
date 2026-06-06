@@ -9,9 +9,9 @@ interface HeaderProps {
 export function Header({ rol, onRolChange }: HeaderProps) {
   return (
     <header className="shrink-0 bg-cyan-600 text-white shadow-md">
-      <div className="mx-auto flex max-w-7xl flex-col gap-2 px-3 py-3 sm:px-4 md:flex-row md:items-center md:justify-between lg:px-6">
+      <div className="flex w-full flex-col gap-2 px-4 py-3 sm:px-5 md:flex-row md:items-center md:justify-between lg:px-6 xl:px-8">
         <div>
-          <h1 className="text-lg font-bold sm:text-xl lg:text-2xl">Tornillos MX - Gestion de Nomina</h1>
+          <h1 className="text-lg font-bold sm:text-xl lg:text-2xl xl:text-3xl">Tornillos MX - Gestion de Nomina</h1>
           <p className="mt-0.5 text-xs text-cyan-100 sm:text-sm">
             Sistema de informacion para altas, consultas y calculo de nomina
           </p>

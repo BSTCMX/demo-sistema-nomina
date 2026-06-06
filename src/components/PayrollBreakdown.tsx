@@ -8,9 +8,9 @@ interface PayrollBreakdownProps {
 export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
   if (!empleado) {
     return (
-      <section className="rounded-lg border border-dashed border-gray-300 bg-white p-4 text-center shadow-sm sm:p-5">
-        <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Totales</h2>
-        <p className="mt-2 text-xs text-gray-500 sm:text-sm">
+      <section className="shrink-0 rounded-lg border border-dashed border-gray-300 bg-white p-4 text-center shadow-sm sm:p-5 lg:p-6">
+        <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">Totales</h2>
+        <p className="mt-2 text-xs text-gray-500 sm:text-sm lg:text-base">
           Selecciona un empleado para ver el desglose de percepciones y deducciones.
         </p>
       </section>
@@ -20,9 +20,9 @@ export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
   const totales = calcularTotales(empleado);
 
   return (
-    <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4">
-      <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Visualizacion de calculos</h2>
-      <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
+    <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4 lg:p-5">
+      <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">Visualizacion de calculos</h2>
+      <p className="mt-0.5 text-xs text-gray-500 sm:text-sm lg:text-base">
         Desglose para {empleado.nombre} (#{empleado.id})
       </p>
 

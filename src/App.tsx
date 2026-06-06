@@ -157,8 +157,8 @@ export default function App() {
       <Toaster position="top-right" richColors />
       <Header rol={rol} onRolChange={setRol} />
 
-      <main className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col gap-2 overflow-y-auto px-3 py-2 sm:gap-3 sm:px-4 lg:overflow-hidden lg:px-6 lg:py-3">
-        <p className="shrink-0 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900 sm:text-sm">
+      <main className="flex min-h-0 w-full flex-1 flex-col gap-2 overflow-y-auto px-3 py-2 sm:gap-3 sm:px-4 lg:overflow-hidden lg:px-5 lg:py-3 xl:gap-4 xl:px-6 2xl:px-8">
+        <p className="shrink-0 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900 sm:text-sm lg:py-2.5 lg:text-base">
           Datos de demostracion guardados en este navegador (localStorage). No hay base de datos en el servidor.
         </p>
 
@@ -166,8 +166,8 @@ export default function App() {
           <SearchFilters filtros={filtros} onChange={setFiltros} onClear={limpiarFiltros} />
         </div>
 
-        <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 sm:gap-3 md:grid-cols-2 lg:grid-cols-12 lg:gap-3">
-          <div className="flex min-h-[220px] flex-col md:col-span-2 lg:col-span-5 lg:min-h-0">
+        <div className="grid min-h-0 min-w-0 flex-1 grid-cols-1 gap-2 sm:gap-3 md:grid-cols-2 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1.1fr)_minmax(280px,0.85fr)] lg:gap-4 xl:gap-5">
+          <div className="flex min-h-[220px] min-w-0 flex-col md:col-span-2 lg:col-span-1 lg:min-h-0">
             <EmployeeTable
               empleados={empleadosFiltrados}
               seleccionadoId={seleccionadoId}
@@ -175,7 +175,7 @@ export default function App() {
             />
           </div>
 
-          <div className="flex min-h-[320px] flex-col md:min-h-[360px] lg:col-span-4 lg:min-h-0">
+          <div className="flex min-h-[320px] min-w-0 flex-col md:min-h-[360px] lg:col-span-1 lg:min-h-0">
             <EmployeeForm
               formData={formData}
               esNuevo={esNuevo}
@@ -189,18 +189,18 @@ export default function App() {
             />
           </div>
 
-          <div className="flex min-h-0 flex-col gap-2 sm:gap-3 md:min-h-[360px] lg:col-span-3 lg:overflow-y-auto">
+          <div className="flex min-h-0 min-w-0 flex-col gap-2 sm:gap-3 md:min-h-[360px] lg:col-span-1 lg:overflow-y-auto xl:gap-4">
             <PayrollBreakdown empleado={empleadoSeleccionado} />
             {permisos.exportarReporte ? (
-              <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4">
-                <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Reporte</h2>
-                <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
+              <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4 lg:p-5">
+                <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">Reporte</h2>
+                <p className="mt-0.5 text-xs text-gray-500 sm:text-sm lg:text-base">
                   Consolida empleados visibles segun filtros actuales.
                 </p>
                 <button
                   type="button"
                   onClick={handleGenerarReporte}
-                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600"
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600 lg:py-3 lg:text-base"
                 >
                   <FileText className="h-4 w-4" />
                   Generar reporte

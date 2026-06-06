@@ -29,7 +29,7 @@ function Field({
 }) {
   return (
     <div>
-      <label htmlFor={id} className="mb-0.5 block text-xs font-medium text-gray-700 sm:text-sm">
+      <label htmlFor={id} className="mb-0.5 block text-xs font-medium text-gray-700 sm:text-sm lg:text-base">
         {label}
       </label>
       {children}
@@ -39,9 +39,9 @@ function Field({
 }
 
 const inputClass =
-  'w-full rounded-md border border-gray-300 px-2.5 py-1.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-600';
+  'w-full rounded-md border border-gray-300 px-2.5 py-1.5 text-sm focus:border-cyan-500 focus:outline-none focus:ring-2 focus:ring-cyan-200 disabled:cursor-not-allowed disabled:bg-gray-100 disabled:text-gray-600 lg:px-3 lg:py-2 lg:text-base';
 const inputErrorClass =
-  'w-full rounded-md border border-red-500 px-2.5 py-1.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 disabled:cursor-not-allowed disabled:bg-gray-100';
+  'w-full rounded-md border border-red-500 px-2.5 py-1.5 text-sm focus:border-red-500 focus:outline-none focus:ring-2 focus:ring-red-200 disabled:cursor-not-allowed disabled:bg-gray-100 lg:px-3 lg:py-2 lg:text-base';
 
 export function EmployeeForm({
   formData,
@@ -80,9 +80,9 @@ export function EmployeeForm({
 
   return (
     <section className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm lg:min-h-0">
-      <div className="flex shrink-0 flex-col gap-2 border-b border-gray-100 px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-4">
+      <div className="flex shrink-0 flex-col gap-2 border-b border-gray-100 px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-4 lg:px-5 lg:py-3">
         <div>
-          <h2 className="text-base font-semibold text-gray-800 sm:text-lg">
+          <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">
             {soloLectura ? 'Consulta de empleado' : esNuevo ? 'Agregar empleado' : 'Editar empleado'}
           </h2>
           <p className="text-xs text-gray-500 sm:text-sm">
@@ -104,7 +104,7 @@ export function EmployeeForm({
             <h3 className="mb-2 border-b border-gray-200 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-700">
               Empleado
             </h3>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 lg:grid-cols-3 xl:grid-cols-4 xl:gap-4">
               <Field label="Numero de empleado" id="numero" error={errors.id}>
                 <input
                   id="numero"
@@ -237,7 +237,7 @@ export function EmployeeForm({
             <h3 className="mb-2 border-b border-gray-200 pb-1 text-xs font-semibold uppercase tracking-wide text-red-700">
               Deducciones
             </h3>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-3 sm:gap-3">
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:gap-3 xl:grid-cols-3 xl:gap-4">
               <Field label="ISR" id="isr">
                 <input
                   id="isr"
@@ -283,14 +283,14 @@ export function EmployeeForm({
       </div>
 
       {mostrarAcciones ? (
-        <div className="shrink-0 border-t border-gray-200 bg-gray-50 px-3 py-2.5 sm:px-4">
+        <div className="shrink-0 border-t border-gray-200 bg-gray-50 px-3 py-2.5 sm:px-4 lg:px-5 lg:py-3">
           <div className="flex flex-col gap-2 sm:flex-row">
             {permisos.agregar ? (
               <button
                 type="button"
                 onClick={onAgregar}
                 disabled={!esNuevo}
-                className="flex-1 rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-gray-400"
+                className="flex-1 rounded-md bg-green-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-gray-400 lg:py-2.5 lg:text-base"
               >
                 Agregar
               </button>
@@ -300,7 +300,7 @@ export function EmployeeForm({
                 type="button"
                 onClick={onEditar}
                 disabled={esNuevo}
-                className="flex-1 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-400"
+                className="flex-1 rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-400 lg:py-2.5 lg:text-base"
               >
                 Editar
               </button>
@@ -310,7 +310,7 @@ export function EmployeeForm({
                 type="button"
                 onClick={onEliminar}
                 disabled={esNuevo}
-                className="flex-1 rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-gray-400"
+                className="flex-1 rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-gray-400 lg:py-2.5 lg:text-base"
               >
                 Eliminar
               </button>
