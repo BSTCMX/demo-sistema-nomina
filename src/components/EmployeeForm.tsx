@@ -252,31 +252,36 @@ export function EmployeeForm({
         </div>
       </div>
 
-      <div className="mt-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
-        <button
-          type="button"
-          onClick={onAgregar}
-          disabled={!permisos.agregar || !esNuevo}
-          className="rounded-md bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:bg-gray-400"
-        >
-          Agregar
-        </button>
-        <button
-          type="button"
-          onClick={onEditar}
-          disabled={!permisos.editar || esNuevo}
-          className="rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:bg-gray-400"
-        >
-          Editar
-        </button>
-        <button
-          type="button"
-          onClick={onEliminar}
-          disabled={!permisos.eliminar || esNuevo}
-          className="rounded-md bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-700 disabled:cursor-not-allowed disabled:bg-gray-400"
-        >
-          Eliminar
-        </button>
+      <div className="mt-6 flex flex-wrap gap-3">
+        {esNuevo && permisos.agregar ? (
+          <button
+            type="button"
+            onClick={onAgregar}
+            className="rounded-md bg-green-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-green-700"
+          >
+            Agregar
+          </button>
+        ) : null}
+
+        {!esNuevo && permisos.editar ? (
+          <button
+            type="button"
+            onClick={onEditar}
+            className="rounded-md bg-blue-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-blue-700"
+          >
+            Guardar
+          </button>
+        ) : null}
+
+        {!esNuevo && permisos.eliminar ? (
+          <button
+            type="button"
+            onClick={onEliminar}
+            className="rounded-md bg-red-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-red-700"
+          >
+            Eliminar
+          </button>
+        ) : null}
       </div>
     </section>
   );
