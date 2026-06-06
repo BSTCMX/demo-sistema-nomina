@@ -153,24 +153,29 @@ export default function App() {
   const totalNetoReporte = empleadosFiltrados.reduce((sum, emp) => sum + calcularNeto(emp), 0);
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="flex h-full min-h-0 flex-col overflow-hidden bg-gray-100">
       <Toaster position="top-right" richColors />
       <Header rol={rol} onRolChange={setRol} />
 
-      <main className="mx-auto max-w-7xl space-y-6 px-4 py-6 sm:px-6 lg:px-8">
-        <p className="rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-900">
+      <main className="mx-auto flex min-h-0 w-full max-w-7xl flex-1 flex-col gap-2 overflow-y-auto px-3 py-2 sm:gap-3 sm:px-4 lg:overflow-hidden lg:px-6 lg:py-3">
+        <p className="shrink-0 rounded-md border border-amber-200 bg-amber-50 px-3 py-2 text-xs text-amber-900 sm:text-sm">
           Datos de demostracion guardados en este navegador (localStorage). No hay base de datos en el servidor.
         </p>
 
-        <SearchFilters filtros={filtros} onChange={setFiltros} onClear={limpiarFiltros} />
+        <div className="shrink-0">
+          <SearchFilters filtros={filtros} onChange={setFiltros} onClear={limpiarFiltros} />
+        </div>
 
-        <div className="grid grid-cols-1 gap-6 xl:grid-cols-3">
-          <div className="space-y-6 xl:col-span-2">
+        <div className="grid min-h-0 flex-1 grid-cols-1 gap-2 sm:gap-3 md:grid-cols-2 lg:grid-cols-12 lg:gap-3">
+          <div className="flex min-h-[220px] flex-col md:col-span-2 lg:col-span-5 lg:min-h-0">
             <EmployeeTable
               empleados={empleadosFiltrados}
               seleccionadoId={seleccionadoId}
               onSelect={handleSelect}
             />
+          </div>
+
+          <div className="flex min-h-[320px] flex-col md:min-h-[360px] lg:col-span-4 lg:min-h-0">
             <EmployeeForm
               formData={formData}
               esNuevo={esNuevo}
@@ -184,23 +189,24 @@ export default function App() {
             />
           </div>
 
-          <div className="space-y-6">
+          <div className="flex min-h-0 flex-col gap-2 sm:gap-3 md:min-h-[360px] lg:col-span-3 lg:overflow-y-auto">
             <PayrollBreakdown empleado={empleadoSeleccionado} />
-            <section className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-              <h2 className="text-lg font-semibold text-gray-800">Reporte</h2>
-              <p className="mt-1 text-sm text-gray-500">
-                Consolida empleados visibles segun filtros actuales.
-              </p>
-              <button
-                type="button"
-                onClick={handleGenerarReporte}
-                disabled={!permisos.exportarReporte}
-                className="mt-4 inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-500 px-4 py-3 text-sm font-semibold text-white transition hover:bg-yellow-600 disabled:cursor-not-allowed disabled:bg-gray-400"
-              >
-                <FileText className="h-4 w-4" />
-                Generar reporte
-              </button>
-            </section>
+            {permisos.exportarReporte ? (
+              <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4">
+                <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Reporte</h2>
+                <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
+                  Consolida empleados visibles segun filtros actuales.
+                </p>
+                <button
+                  type="button"
+                  onClick={handleGenerarReporte}
+                  className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-md bg-yellow-500 px-3 py-2 text-sm font-semibold text-white transition hover:bg-yellow-600"
+                >
+                  <FileText className="h-4 w-4" />
+                  Generar reporte
+                </button>
+              </section>
+            ) : null}
           </div>
         </div>
       </main>

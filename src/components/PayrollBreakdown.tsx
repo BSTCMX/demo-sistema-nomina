@@ -8,9 +8,9 @@ interface PayrollBreakdownProps {
 export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
   if (!empleado) {
     return (
-      <section className="rounded-lg border border-dashed border-gray-300 bg-white p-6 text-center shadow-sm">
-        <h2 className="text-lg font-semibold text-gray-800">Totales</h2>
-        <p className="mt-3 text-sm text-gray-500">
+      <section className="rounded-lg border border-dashed border-gray-300 bg-white p-4 text-center shadow-sm sm:p-5">
+        <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Totales</h2>
+        <p className="mt-2 text-xs text-gray-500 sm:text-sm">
           Selecciona un empleado para ver el desglose de percepciones y deducciones.
         </p>
       </section>
@@ -20,16 +20,16 @@ export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
   const totales = calcularTotales(empleado);
 
   return (
-    <section className="rounded-lg border border-gray-200 bg-white p-5 shadow-sm">
-      <h2 className="text-lg font-semibold text-gray-800">Visualizacion de calculos</h2>
-      <p className="mt-1 text-sm text-gray-500">
+    <section className="shrink-0 rounded-lg border border-gray-200 bg-white p-3 shadow-sm sm:p-4">
+      <h2 className="text-base font-semibold text-gray-800 sm:text-lg">Visualizacion de calculos</h2>
+      <p className="mt-0.5 text-xs text-gray-500 sm:text-sm">
         Desglose para {empleado.nombre} (#{empleado.id})
       </p>
 
-      <div className="mt-4 space-y-3">
-        <div className="rounded-md border border-green-200 bg-green-50 p-3">
+      <div className="mt-3 space-y-2 sm:space-y-3">
+        <div className="rounded-md border border-green-200 bg-green-50 p-2.5 sm:p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-green-800">Ingresos</p>
-          <div className="mt-2 space-y-1 text-sm text-green-900">
+          <div className="mt-1.5 space-y-0.5 text-xs text-green-900 sm:space-y-1 sm:text-sm">
             <div className="flex justify-between">
               <span>Salario base</span>
               <span className="font-mono">{formatCurrency(empleado.salarioBase)}</span>
@@ -49,9 +49,9 @@ export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
           </div>
         </div>
 
-        <div className="rounded-md border border-red-200 bg-red-50 p-3">
+        <div className="rounded-md border border-red-200 bg-red-50 p-2.5 sm:p-3">
           <p className="text-xs font-semibold uppercase tracking-wide text-red-800">Deducciones</p>
-          <div className="mt-2 space-y-1 text-sm text-red-900">
+          <div className="mt-1.5 space-y-0.5 text-xs text-red-900 sm:space-y-1 sm:text-sm">
             <div className="flex justify-between">
               <span>ISR</span>
               <span className="font-mono">{formatCurrency(empleado.deducciones.isr)}</span>
@@ -71,10 +71,10 @@ export function PayrollBreakdown({ empleado }: PayrollBreakdownProps) {
           </div>
         </div>
 
-        <div className="rounded-md border border-cyan-300 bg-cyan-50 p-4">
+        <div className="rounded-md border border-cyan-300 bg-cyan-50 p-3 sm:p-4">
           <div className="flex items-center justify-between">
-            <span className="text-sm font-semibold text-cyan-900">Neto por pagar</span>
-            <span className="text-xl font-bold font-mono text-cyan-900">{formatCurrency(totales.neto)}</span>
+            <span className="text-xs font-semibold text-cyan-900 sm:text-sm">Neto por pagar</span>
+            <span className="text-lg font-bold font-mono text-cyan-900 sm:text-xl">{formatCurrency(totales.neto)}</span>
           </div>
         </div>
       </div>

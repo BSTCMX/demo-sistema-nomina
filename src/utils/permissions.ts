@@ -23,3 +23,12 @@ export function permisosPorRol(rol: RolUsuario): PermisosRol {
 export function mensajePermisoDenegado(accion: string): string {
   return `Tu rol no tiene permiso para ${accion}.`;
 }
+
+/** Solo lectura cuando el rol no puede crear ni modificar empleados (p. ej. Contador). */
+export function formularioSoloLectura(permisos: PermisosRol): boolean {
+  return !permisos.agregar && !permisos.editar;
+}
+
+export function tieneAccionesFormulario(permisos: PermisosRol): boolean {
+  return permisos.agregar || permisos.editar || permisos.eliminar;
+}
