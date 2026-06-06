@@ -98,7 +98,7 @@ export default function App() {
       return;
     }
     guardarEmpleado(formData, false);
-    toast.success(`Empleado #${formData.id} guardado`);
+    toast.success(`Empleado #${formData.id} actualizado`);
   };
 
   const handleEliminar = () => {
