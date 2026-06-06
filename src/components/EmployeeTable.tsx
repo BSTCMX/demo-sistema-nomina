@@ -9,12 +9,12 @@ interface EmployeeTableProps {
 
 export function EmployeeTable({ empleados, seleccionadoId, onSelect }: EmployeeTableProps) {
   return (
-    <section className="flex h-full min-h-0 flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm">
+    <section className="flex min-h-[220px] flex-col rounded-lg border border-gray-200 bg-white shadow-sm">
       <div className="shrink-0 border-b border-gray-200 px-3 py-2 sm:px-4 lg:px-5 lg:py-3">
         <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">Gestion de empleados</h2>
         <p className="text-xs text-gray-500 sm:text-sm lg:text-base">{empleados.length} registro(s) visibles</p>
       </div>
-      <div className="min-h-0 flex-1 overflow-auto">
+      <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="sticky top-0 z-10 bg-gray-50">
             <tr>

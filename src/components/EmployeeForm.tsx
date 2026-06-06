@@ -79,7 +79,7 @@ export function EmployeeForm({
   };
 
   return (
-    <section className="flex h-full min-h-[280px] flex-col overflow-hidden rounded-lg border border-gray-200 bg-white shadow-sm lg:min-h-0">
+    <section className="flex min-h-[280px] flex-col rounded-lg border border-gray-200 bg-white shadow-sm">
       <div className="flex shrink-0 flex-col gap-2 border-b border-gray-100 px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-4 lg:px-5 lg:py-3">
         <div>
           <h2 className="text-base font-semibold text-gray-800 sm:text-lg lg:text-xl">
@@ -98,7 +98,7 @@ export function EmployeeForm({
         </button>
       </div>
 
-      <div className="min-h-0 flex-1 overflow-y-auto px-3 py-3 sm:px-4 lg:overflow-y-auto">
+      <div className="px-3 py-3 sm:px-4 lg:px-5">
         <div className="space-y-3 sm:space-y-4">
           <div>
             <h3 className="mb-2 border-b border-gray-200 pb-1 text-xs font-semibold uppercase tracking-wide text-gray-700">
